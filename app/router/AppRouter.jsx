@@ -1,0 +1,27 @@
+import React from 'react'
+import { Router, Route, HashRouter } from 'react-router-dom'
+const { BrowserRouter } = Router
+
+import App from '../containers'
+import SubRouter from './SubRouter'
+
+import createBrowserHistory from 'history/createBrowserHistory'
+const customHistory = createBrowserHistory()
+
+export default class AppRouter extends React.Component {
+    constructor(props) {
+        super(props)
+    }
+    render() {
+        return (
+            <Router history={customHistory}>
+                {/*<HashRouter >*/}
+                <App>
+                    {/*<SubRouter></SubRouter>*/}
+                    <Route path='/' component={SubRouter}></Route>
+                </App>
+                {/*</HashRouter>*/}
+            </Router>
+        )
+    }
+}
